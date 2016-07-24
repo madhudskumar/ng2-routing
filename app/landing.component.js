@@ -10,18 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var AppComponent = (function () {
-    function AppComponent() {
+var LandComponent = (function () {
+    function LandComponent() {
     }
-    AppComponent = __decorate([
+    LandComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h3>page is</h3>\n    <router-outlet></router-outlet>\n  ",
+            selector: 'landing-component',
+            template: "\n    <h3>this is landing page</h3>\n    <a routerLink='/welcome' routerLinkActive=\"active\">Welcome page</a>\n    <a routerLink='/login' routerLinkActive=\"active\">login page</a>\n    <a routerLink='/user' routerLinkActive=\"active\">user page</a>\n  ",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], LandComponent);
+    return LandComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LandComponent = LandComponent;
+//# sourceMappingURL=landing.component.js.map
