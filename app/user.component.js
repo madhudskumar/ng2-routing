@@ -9,15 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var UserComponent = (function () {
-    function UserComponent() {
+    function UserComponent(route) {
+        this.route = route;
     }
+    UserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.id = +params['id'];
+        });
+    };
+    UserComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
     UserComponent = __decorate([
         core_1.Component({
             selector: 'user-component',
-            template: "\n    <h3>user component</h3>\n  "
+            template: "\n    <h3>user component {{id}}</h3>\n  "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], UserComponent);
     return UserComponent;
 }());

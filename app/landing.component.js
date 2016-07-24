@@ -11,15 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var LandComponent = (function () {
-    function LandComponent() {
+    function LandComponent(router) {
+        this.router = router;
+        this.user = Math.random();
     }
+    LandComponent.prototype.gotoUser = function () {
+        this.router.navigate(['/user', this.user]);
+    };
     LandComponent = __decorate([
         core_1.Component({
             selector: 'landing-component',
-            template: "\n    <h3>this is landing page</h3>\n    <a routerLink='/welcome' routerLinkActive=\"active\">Welcome page</a>\n    <a routerLink='/login' routerLinkActive=\"active\">login page</a>\n    <a routerLink='/user' routerLinkActive=\"active\">user page</a>\n  ",
+            template: "\n    <h3>this is landing page</h3>\n    <a routerLink='/welcome' routerLinkActive=\"active\">Welcome page</a>\n    <a routerLink='/login' routerLinkActive=\"active\">login page</a>\n    <button (click)='gotoUser()'>got to user</button>\n  ",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], LandComponent);
     return LandComponent;
 }());

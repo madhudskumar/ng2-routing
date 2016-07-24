@@ -7,7 +7,7 @@ import { LandComponent } from './landing.component';
 const routes:RouterConfig = [
     {path:'welcome', component: WelcomeComponent},
     {path:'login', component: LoginComponent},
-    {path:'user', component: UserComponent},
+    {path:'user/:id', component: UserComponent},
     {path:'**', component: LandComponent}
 ];
 

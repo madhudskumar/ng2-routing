@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 @Component({
   selector: 'landing-component',
@@ -7,10 +7,22 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     <h3>this is landing page</h3>
     <a routerLink='/welcome' routerLinkActive="active">Welcome page</a>
     <a routerLink='/login' routerLinkActive="active">login page</a>
-    <a routerLink='/user' routerLinkActive="active">user page</a>
+    <button (click)='gotoUser()'>got to user</button>
   `,
   directives:[ROUTER_DIRECTIVES]
 })
 
 
-export class LandComponent { }
+export class LandComponent { 
+  user:number;
+  constructor(
+    private router: Router
+  ){
+    this.user = Math.random();
+  }
+
+  gotoUser(){
+    this.router.navigate(['/user', this.user]);
+  }
+
+}

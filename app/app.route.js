@@ -7,7 +7,7 @@ var landing_component_1 = require('./landing.component');
 var routes = [
     { path: 'welcome', component: welcome_component_1.WelcomeComponent },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'user', component: user_component_1.UserComponent },
+    { path: 'user/:id', component: user_component_1.UserComponent },
     { path: '**', component: landing_component_1.LandComponent }
 ];
 exports.appRouterProvider = [
